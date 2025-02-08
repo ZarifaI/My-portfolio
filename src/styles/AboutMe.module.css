@@ -2,18 +2,24 @@
 .aboutContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Align items to the left */
   justify-content: center;
   height: 100vh;
-  padding: 20px;
+  padding: 40px;
+  overflow: auto;
+  margin-top: -40px;
 }
 
-.heading {
-  font-family: "Rampart One", serif;
-  font-size: 2.5rem;
-  color: #ff87a2; 
-  margin-bottom: 10px;
-}
+  .heading {
+    margin-top: -30px; /* Move the heading up */
+    margin-bottom: 20px; /* Adjust the bottom margin */
+    font-family: "Rampart One", serif;
+    font-size: 2.5rem;
+    margin-left: 330px;
+    color: #ff87a2;
+    text-align: left; /* Align text to the left */
+  }
+  
 
 .typing {
   display: inline-block;
@@ -42,12 +48,12 @@
 }
 
 .content {
-  text-align: center;
+  text-align: left;  /* This line moves the text to the left */
   max-width: 800px;
   color: rgb(119, 118, 117);
-
   margin-bottom: 30px;
-  border: 2px solid  rgb(119, 118, 117); /* Soft pink color for the border */
+  margin-left: 200px;
+  border: 2px solid rgb(119, 118, 117); /* Soft pink color for the border */
   border-radius: 10px; /* Rounded corners */
   padding: 20px; /* Space between the border and the content */
   background-color: #fdf5f7; /* Light, soft background color */
@@ -55,21 +61,22 @@
   margin: 20px auto; /* Center the box */
   transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
 }
-
 .content:hover {
   transform: scale(1.05); /* Slightly enlarge the content when hovering */
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
 }
 
 .paragraph {
-  font-family: "Poppins", sans-serif;
+  font-family: "Delius Swash Caps", serif;
   font-size: 1.2rem;
   color: #6e3f3f;
-  margin-bottom: 15px;
+  margin-bottom: 100px;
+  margin-left: 150px;
   line-height: 1.6;
   word-wrap: break-word;
   max-width: 600px; /* Optional: Limit width for better readability */
   transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+  text-align: left; /* Align text to the left */
 }
 
 .paragraph:hover {
@@ -79,11 +86,12 @@
 
 .highlight {
   font-weight: bold;
-  color: #ff5e78; 
+  color: #ff5e78;
 }
 
 /* Button Styling */
 .buttonContainer {
+  margin-left: 95px;
   display: flex;
   justify-content: center;
   margin-top: 100px;
@@ -91,7 +99,7 @@
 
 .learnMore {
   font-weight: 600;
-  font-family: "Rampart One", serif;
+  font-family: "Delius Swash Caps", serif;
   color: #382b22 !important;
   text-transform: uppercase;
   padding: 1.25em 2em;
@@ -109,6 +117,8 @@
 .learnMore::before {
   position: absolute;
   content: '';
+  font-family: "Delius Swash Caps", serif;
+
   width: 100%;
   height: 80%;
   top: 0;
@@ -134,15 +144,16 @@
 }
 
 .navButtons {
+  margin-left: 100px; /* Move the whole container to the right */
   display: flex;
   justify-content: center;
   gap: 20px; /* Space between buttons */
-  margin-top: 30px;
-  margin: 90px;
+  margin-top: 80px;
+  /* Remove the 'margin' shorthand property to avoid conflicts */
 }
 
 .navButton {
-  font-family: "Poppins", sans-serif;
+  font-family: "Delius Swash Caps", serif;
   font-size: 1rem;
   background-color: #ff87a100;
   color: #bdbaba;
@@ -159,14 +170,37 @@
   background-color: #f9c4d266;
   transform: scale(1.1);
   padding: 10px 20px 20px 3px;
-
 }
 
 .navButton:active {
   background-color: #070606;
   transform: scale(1.05);
+  /* Remove the margin here as well to prevent shifting */
 }
 
 .navButton span {
   font-size: 1.5rem;
+}
+
+/* Styles for Spline container */
+.splineContainer {
+  position: absolute;
+  top: 38%;
+  right: 180px;
+  transform: translateY(-50%);
+  width: 450px; /* Increased width */
+  height: 400px; /* Increased height */
+  z-index: 10; /* Ensure it's on top of other elements */
+}
+
+/* Optional: Add responsiveness */
+@media (max-width: 768px) {
+  .splineContainer {
+    width: 300px; /* Adjust size for smaller screens */
+    height: 300px;
+  }
+
+  .contentContainer {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+  }
 }

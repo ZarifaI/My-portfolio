@@ -1,6 +1,6 @@
 body {
   background-color: #ffd7d7; /* Dark background (Change as needed) */
-  overflow: hidden;
+  overflow: auto;
 }
 .main-container {
   background-color: #ffd7d7;
@@ -64,7 +64,8 @@ button {
  
  button.learn-more {
   font-weight: 600;
-  font-family: "Rampart One", serif;  color: rgb(119, 118, 117);
+  font-family: "Delius Swash Caps", serif;
+
   color: #382b22;
   margin-bottom : -50px;
   text-transform: uppercase;

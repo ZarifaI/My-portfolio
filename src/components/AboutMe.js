@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/AboutMe.module.css";
+import Spline from "@splinetool/react-spline";
 
 export default function AboutMe() {
   const [typedHeading, setTypedHeading] = useState(""); // State for typed "About Me"
@@ -38,26 +39,34 @@ export default function AboutMe() {
         {showCursor && <span className={styles.cursor} />} {/* Conditionally render the cursor */}
       </h1>
       
-      <div className={styles.content}>
-        {/* Static content for the paragraph */}
-        <p className={styles.paragraph}>{content}</p>
-      </div>
+      <div className={styles.contentContainer}>
+        {/* Left side: Text Content */}
+        <div className={styles.textContent}>
+          <p className={styles.paragraph}>{content}</p>
+          <div className={styles.buttonContainer}>
+            {/* Learn More button */}
+            <button className={styles.learnMore} onClick={() => navigate("/education")}>
+              Education
+            </button>
+          </div>
 
-      <div className={styles.buttonContainer}>
-        {/* Learn More button */}
-        <button className={styles.learnMore} onClick={() => navigate("/education")}>
-          Learn More
-        </button>
-      </div>
+          <div className={styles.navButtons}>
+            {/* Back and Forward Navigation buttons */}
+            <button className={styles.navButton} onClick={() => navigate(-1)}>
+              &larr; Back
+            </button>
+            <button className={styles.navButton} onClick={() => navigate("/education")}>
+  Forward &rarr;
+</button>
+          </div>
+        </div>
 
-      <div className={styles.navButtons}>
-        {/* Back and Forward Navigation buttons */}
-        <button className={styles.navButton} onClick={() => navigate(-1)}>
-          &larr; Back
-        </button>
-        <button className={styles.navButton} onClick={() => navigate(1)}>
-          Forward &rarr;
-        </button>
+        {/* Right side: Spline 3D Model */}
+        <div className={styles.splineContainer}>
+          <Spline
+        scene="https://prod.spline.design/6AUbPVlto8uGckqL/scene.splinecode" 
+        style={{ width: "100%", height: "500px" }} />
+        </div>
       </div>
     </div>
   );

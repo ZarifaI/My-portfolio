@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap');
+/* Existing styles */
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 
 body {
   background-color: #fffbf3;
+  overflow: auto;
+  justify-content: flex-start;
 }
 
 .educationContainer {
+  margin-top: -100px;
+  font-family: "Delius Swash Caps", serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,54 +20,86 @@ body {
 }
 
 .heading {
-    font-family: "Rampart One", serif;  color: rgb(119, 118, 117);
-    font-size: 2.5rem;
-  color: #ff87a2; /* Cute pink color */
+  font-family: "Rampart One", serif;
+  color: rgb(119, 118, 117);
+  font-size: 2.5rem;
   margin-bottom: 10px;
   animation: fadeIn 1.5s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  font-family: "Rampart One", serif;  color: rgb(119, 118, 117);
-
-  border-radius: 15px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  text-align: center;
-  animation: slideUp 1.2s ease-in-out;
+.icon {
+  font-size: 3rem;
 }
 
-.paragraph {
-  font-family: "Dancing Script", cursive;
+/* Handwriting effect */
+.typingEffect {
+  font-family: "Rampart One", serif;
+  color: rgb(119, 118, 117);
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: handwriting 3s steps(30) 1s forwards;
+}
+
+@keyframes handwriting {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Remove bullet points */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
   font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 10px;
-  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-.highlight {
-  font-weight: bold;
-  color: #ff5e78; /* A warm pink shade */
+.listIcon {
+  font-size: 2.5rem;
+  color: #b18597;
+  margin-right: 25px;
 }
 
-.emoji {
-  font-size: 1.3rem;
+/* Make coursework span multiple lines */
+.coursesList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+.coursesList span {
+  font-size: 1rem;
+  color: #b18597;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Ensure text is evenly distributed */
+.educationContainer > .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 25px;
+  width: 100%;
 }
 
-/* Button Styling */
 .buttonContainer {
   display: flex;
   justify-content: center;
@@ -71,7 +108,7 @@ body {
 
 .learnMore {
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: "Delius Swash Caps", serif;
   color: #382b22 !important;
   text-transform: uppercase;
   padding: 1.25em 2em;
@@ -88,6 +125,7 @@ body {
 
 .learnMore::before {
   position: absolute;
+  font-family: "Delius Swash Caps", serif;
   content: '';
   width: 100%;
   height: 80%;
@@ -121,4 +159,16 @@ body {
 .learnMore:active::before {
   box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
   transform: translate3d(0, 0, -1em);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
